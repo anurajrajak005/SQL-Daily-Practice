@@ -1041,10 +1041,6 @@ INSERT INTO sales VALUES
 (199, 'Anjali Nair', 'Headphones', 3, '2023-01-31', 'Indore', 6500),
 (200, 'Sneha Tiwari', 'Keyboard', 10, '2025-05-15', 'Jaipur', 6500);
 
+use ANURAJ;
 select * from sales;
-
 select * from customer;
-select * from sales;
-
-show databases;
-select * from sales;
