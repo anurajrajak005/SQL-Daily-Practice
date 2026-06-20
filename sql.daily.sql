@@ -827,7 +827,7 @@ select count(customer_id) as total_cust , customer_city from customer group by c
 -- 50. Find total salary by city and performance.
 select sum(salary) as total_sal, customer_city, performance from customer group by customer_city, performance ;
 
---                                                                                     day 3
+--                                                                                     day 3 # 
 Drop table sales; 
 CREATE TABLE sales (
 order_id INT PRIMARY KEY,
@@ -1044,3 +1044,76 @@ INSERT INTO sales VALUES
 use ANURAJ;
 select * from sales;
 select * from customer;
+
+--                                                                                     day 4
+select *,isnull(customer_name) from sales;
+select *,ifnull(customer_name,5) from sales;
+select *,ifnull(customer_name,product) from sales;	
+select *,coalesce(customer_name,product,2) from sales;
+
+select *,isnull(quantity) from sales;
+select *,ifnull(quantity,99) from sales;
+select *,coalesce(quantity,customer_name,product, "Does not exit") from sales;
+
+-- 1 Display all orders where product is NULL.
+select * from sales
+where product is null;
+
+-- 2 Show orders where city is NULL.
+select * from sales
+where city is null;
+
+-- 3 Find records where quantity is NULL.
+select * from sales
+where quantity is null;
+-- Display records where price is NULL.
+-- Show orders from Mumbai.
+-- Display orders where quantity is greater than 1.
+-- Show orders where price is greater than 20000.
+-- Find orders where customer_name is not NULL.
+-- Display records where both customer_name and product are NULL.
+-- LIKE + WHERE (11-20)
+-- Find customers whose name starts with 'A'.
+-- Find customers whose name ends with 'a'.
+-- Show products starting with 'L'.
+-- Show products ending with 'e'.
+-- Display cities containing 'i'.
+-- Find customers whose name contains 'it'.
+-- Show products like 'L%p'.
+-- Display products like 'M%e'.
+-- Show cities starting with 'D'.
+-- Find customers whose name contains 'ha'.
+-- IFNULL() + COALESCE() (21-30)
+-- Replace NULL customer_name with 'Unknown'.
+-- Replace NULL product with 'No Product'.
+-- Replace NULL city with 'Not Available'.
+-- Replace NULL quantity with 0.
+-- Replace NULL price with 99999.
+-- Use COALESCE(customer_name, product, city, 'Missing').
+-- Display first non-null value among product, city and customer_name.
+-- Replace NULL quantity with 100 using IFNULL().
+-- Show all records with COALESCE(price,0).
+-- Display order_id and COALESCE(quantity,1).
+-- ORDER BY + LIMIT (31-40)
+-- Display all orders sorted by price ascending.
+-- Display all orders sorted by price descending.
+-- Show customer names alphabetically.
+-- Show cities in descending order.
+-- Display latest orders first.
+-- Show top 5 highest priced orders.
+-- Show top 3 lowest priced orders.
+-- Display first 10 records.
+-- Show top 5 latest orders.
+-- Display first 4 Mumbai orders.
+-- OFFSET (41-45)
+-- Skip first 2 records and display remaining records.
+-- Display 5 records after skipping first 3.
+-- Show second highest priced order using LIMIT and OFFSET.
+-- Display records ranked 4th to 8th by price.
+-- Show 3 records after skipping first 5 records.
+-- GROUP BY + HAVING (46-50)
+-- Count total orders city-wise.
+-- Find total sales amount city-wise.
+-- Find average price product-wise.
+-- Display cities having more than 2 orders.
+-- Find total sales by city and product where total sales are greater than 50000.
