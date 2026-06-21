@@ -1107,7 +1107,11 @@ where product like 'L%';
 -- 14 Show products ending with 'e'.
 select * from sales
 where product like '%e';
--- Display cities containing 'i'.
+
+use Anuraj;
+-- 15 Display cities containing 'i'.
+select * from sales
+where city like '_i%';
 -- Find customers whose name contains 'it'.
 -- Show products like 'L%p'.
 -- Display products like 'M%e'.
