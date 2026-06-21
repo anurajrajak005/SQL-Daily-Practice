@@ -1063,20 +1063,50 @@ where product is null;
 select * from sales
 where city is null;
 
+use ANURAj;
+
 -- 3 Find records where quantity is NULL.
 select * from sales
 where quantity is null;
--- Display records where price is NULL.
--- Show orders from Mumbai.
--- Display orders where quantity is greater than 1.
--- Show orders where price is greater than 20000.
--- Find orders where customer_name is not NULL.
--- Display records where both customer_name and product are NULL.
+
+-- 4 Display records where price is NULL.
+select * from sales
+where price is null;
+
+-- 5 Show orders from Mumbai.
+select * from sales
+where city = "Mumbai";
+
+-- 6 Display orders where quantity is greater than 1.
+
+-- 7  Show orders where price is greater than 20000.
+select * from sales
+where price > 20000;
+
+-- 8 Find orders where customer_name is not NULL.
+select * from sales
+where customer_name is null;
+
+-- 9 Display records where both customer_name and product are NULL.
+select * from sales
+where customer_name and product is null;
+
 -- LIKE + WHERE (11-20)
--- Find customers whose name starts with 'A'.
--- Find customers whose name ends with 'a'.
--- Show products starting with 'L'.
--- Show products ending with 'e'.
+-- 11  Find customers whose name starts with 'A'.
+select * from sales
+where customer_name like 'A%';
+
+-- 12  Find customers whose name ends with 'a'.
+select * from sales
+where customer_name like '%a';
+
+-- 13 Show products starting with 'L'.
+select * from sales
+where product like 'L%';
+
+-- 14 Show products ending with 'e'.
+select * from sales
+where product like '%e';
 -- Display cities containing 'i'.
 -- Find customers whose name contains 'it'.
 -- Show products like 'L%p'.
