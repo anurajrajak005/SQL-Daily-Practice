@@ -1111,17 +1111,42 @@ where product like '%e';
 use Anuraj;
 -- 15 Display cities containing 'i'.
 select * from sales
-where city like '_i%';
--- Find customers whose name contains 'it'.
--- Show products like 'L%p'.
--- Display products like 'M%e'.
--- Show cities starting with 'D'.
--- Find customers whose name contains 'ha'.
--- IFNULL() + COALESCE() (21-30)
--- Replace NULL customer_name with 'Unknown'.
--- Replace NULL product with 'No Product'.
--- Replace NULL city with 'Not Available'.
--- Replace NULL quantity with 0.
+where city like '%i%';
+
+-- 16 Find customers whose name contains 'it'.
+select * from sales
+where customer_name like '%it%';
+
+-- 17 Show products like 'L%p'.
+select * from sales
+where product like 'L%p';
+
+-- 18 Display products like 'M%e'.
+select * from sales 
+where product like "M%e";
+
+-- 19 Show cities starting with 'D'.
+select * from sales
+where city like "D%";
+
+select * from sales;
+-- 20 Find customers whose name contains 'ha'.
+select * from sales
+where customer_name  like "%ha%";
+
+--  IFNULL() + COALESCE() (21-30)
+
+-- 21 Replace NULL customer_name with 'Unknown'
+select *, ifnull(customer_name,'unknown') from sales;
+
+-- 22 Replace NULL product with 'No Product'.
+select *, ifnull(product,'No Product') from sales;
+
+-- 23 Replace NULL city with 'Not Available'
+select *, ifnull(city,'Not Available') from sales;
+
+-- 24 Replace NULL quantity with 0.
+select *,  ifnull(quantity,0) from sales;
 -- Replace NULL price with 99999.
 -- Use COALESCE(customer_name, product, city, 'Missing').
 -- Display first non-null value among product, city and customer_name.
