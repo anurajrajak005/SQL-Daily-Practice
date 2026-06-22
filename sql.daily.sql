@@ -1078,18 +1078,20 @@ select * from sales
 where city = "Mumbai";
 
 -- 6 Display orders where quantity is greater than 1.
-
+select * from sales 
+where quantity >1;
 -- 7  Show orders where price is greater than 20000.
 select * from sales
 where price > 20000;
 
 -- 8 Find orders where customer_name is not NULL.
 select * from sales
-where customer_name is null;
+where customer_name is not  null;
 
 -- 9 Display records where both customer_name and product are NULL.
 select * from sales
-where customer_name and product is null;
+where customer_name is null and product is null;
+
 
 -- LIKE + WHERE (11-20)
 -- 11  Find customers whose name starts with 'A'.
@@ -1147,32 +1149,85 @@ select *, ifnull(city,'Not Available') from sales;
 
 -- 24 Replace NULL quantity with 0.
 select *,  ifnull(quantity,0) from sales;
--- Replace NULL price with 99999.
--- Use COALESCE(customer_name, product, city, 'Missing').
--- Display first non-null value among product, city and customer_name.
--- Replace NULL quantity with 100 using IFNULL().
--- Show all records with COALESCE(price,0).
--- Display order_id and COALESCE(quantity,1).
--- ORDER BY + LIMIT (31-40)
--- Display all orders sorted by price ascending.
--- Display all orders sorted by price descending.
--- Show customer names alphabetically.
--- Show cities in descending order.
--- Display latest orders first.
--- Show top 5 highest priced orders.
--- Show top 3 lowest priced orders.
--- Display first 10 records.
--- Show top 5 latest orders.
--- Display first 4 Mumbai orders.
--- OFFSET (41-45)
--- Skip first 2 records and display remaining records.
--- Display 5 records after skipping first 3.
--- Show second highest priced order using LIMIT and OFFSET.
--- Display records ranked 4th to 8th by price.
--- Show 3 records after skipping first 5 records.
+use Anuraj;
+-- 25 Replace NULL price with 99999.
+select * , ifnull(price,99999) from sales;
+
+-- 26 Use COALESCE(customer_name, product, city, 'Missing').
+select *, coalesce(customer_name,product,city,"Missing") from sales;
+
+-- 27 Display first non-null value among product, city and customer_name.
+select *, coalesce(product,city,customer_name) from sales;
+
+-- 28 Replace NULL quantity with 100 using IFNULL().
+select *, ifnull(quantity,100) from sales;
+-- 29 Show all records with COALESCE(price,0).
+select *, coalesce(price,0) from sales;
+
+-- 30 Display order_id and COALESCE(quantity,1).
+select *, coalesce(quantity,1) from sales;
+--                                                             ORDER BY + LIMIT (31-40)
+-- 31 Display all orders sorted by price ascending.
+select * from sales  
+order by price asc;
+
+-- 32 Display all orders sorted by price descending.
+select * from sales
+order by price desc;
+
+-- 33 Show customer names alphabetically.
+select * from sales
+order by customer_name ASC;
+
+--  34 Show cities in descending order.
+select * from sales
+order by city desc ;
+
+select * from sales;
+--  35 Display latest orders first.
+select * from sales
+order by  order_date desc limit 1;
+
+--  36 Show top 5 highest priced orders.
+select * from sales
+order by price desc limit 5;
+
+-- 37 Show top 3 lowest priced orders.
+select * from sales 
+order by price asc limit 3;
+
+-- 38 Display first 10 records.
+select * from sales
+limit 10;
+
+-- 39 Show top 5 latest orders.
+select * from sales
+order by order_date desc limit 5;
+
+-- 40 Display first 4 Mumbai orders.
+select * from sales where city = "mumbai"
+order by order_date asc limit 4;
+--                                      OFFSET (41-45)
+-- 41 Skip first 2 records and display remaining records.
+select * from sales 
+
+
+-- 42 Display 5 records after skipping first 3.
+
+-- 43 Show second highest priced order using LIMIT and OFFSET.
+
+-- 44 Display records ranked 4th to 8th by price.
+
+-- 45 Show 3 records after skipping first 5 records.
+
 -- GROUP BY + HAVING (46-50)
--- Count total orders city-wise.
--- Find total sales amount city-wise.
--- Find average price product-wise.
--- Display cities having more than 2 orders.
--- Find total sales by city and product where total sales are greater than 50000.
+
+-- 46 Count total orders city-wise.
+
+-- 47 Find total sales amount city-wise.
+
+-- 48 Find average price product-wise.
+
+-- 49 Display cities having more than 2 orders.
+
+-- 50 Find total sales by city and product where total sales are greater than 50000.
