@@ -1232,9 +1232,15 @@ select * from sales limit 3,5;
 -- 46 Count total orders city-wise.
 select city, count(city) as total_orders from sales group by city;
 
+use Anuraj;
 select * from sales;
 -- 47 Find total sales amount city-wise.
-select count(city)
+select city,
+       sum(price) as total_sales
+from sales
+group by city
+order by total_sales desc;
+-- select city, count(city) as total_sales from sales 
 -- 48 Find average price product-wise.
 
 -- 49 Display cities having more than 2 orders.
