@@ -1208,24 +1208,33 @@ order by order_date desc limit 5;
 select * from sales where city = "mumbai"
 order by order_date asc limit 4;
 --                                      OFFSET (41-45)
+use ANURAJ;
 -- 41 Skip first 2 records and display remaining records.
-select * from sales 
+select * from sales limit 2,200;
 
+-- find the total rows in sql 
+select count(*) as total_rows from sales;
 
 -- 42 Display 5 records after skipping first 3.
+select * from sales limit 3 ,5;
 
 -- 43 Show second highest priced order using LIMIT and OFFSET.
+select * from sales order by price desc limit 1,1;
 
 -- 44 Display records ranked 4th to 8th by price.
+select * from sales order by price desc limit 3,5;
 
 -- 45 Show 3 records after skipping first 5 records.
+select * from sales limit 3,5;
 
 -- GROUP BY + HAVING (46-50)
 
 -- 46 Count total orders city-wise.
+select city, count(city) as total_orders from sales group by city;
 
+select * from sales;
 -- 47 Find total sales amount city-wise.
-
+select count(city)
 -- 48 Find average price product-wise.
 
 -- 49 Display cities having more than 2 orders.
