@@ -1235,14 +1235,24 @@ select city, count(city) as total_orders from sales group by city;
 use Anuraj;
 select * from sales;
 -- 47 Find total sales amount city-wise.
-select city,
-       sum(price) as total_sales
-from sales
+select city, sum(price) as total_sales from sales
 group by city
 order by total_sales desc;
--- select city, count(city) as total_sales from sales 
--- 48 Find average price product-wise.
 
+-- 48 Find average price product-wise.
+select product, avg(price) as AVG_price from sales 
+group by product
+order by Avg_price desc;
+
+select * from sales;
 -- 49 Display cities having more than 2 orders.
+select city, count(order_id) as total_orders
+from sales
+group by city having count(order_id) > 2;
 
 -- 50 Find total sales by city and product where total sales are greater than 50000.
+
+select city, product, sum(price) as total_sales
+from sales
+group by city, product
+having sum(price) > 50000;
