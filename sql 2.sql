@@ -56,7 +56,7 @@ rename table student to students;
 -- Rename the column student_name to name in the students table.
 -- Your answer :
 alter table students rename column student_name to name ;
-
+desc students;
 
 -- Q9. [DDL – TRUNCATE]
 -- Remove all rows from the students table but keep the structure.
