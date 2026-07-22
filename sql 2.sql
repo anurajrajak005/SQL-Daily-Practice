@@ -1,13 +1,11 @@
-create database anurajj;
-use anurajj;
-select * from salesfor;
-
 -- ── DDL  (Q1–Q10)  ──────────────────────────────────────────────
 
 -- Q1. [DDL – CREATE]
 -- Create a database named cybrom_practice.
 -- Your answer : 
 create database cybrom_practice;
+use cybrom_practice;
+-- drop database cybrom_practice;
 
 
 -- Q2. [DDL – CREATE]
@@ -61,36 +59,56 @@ desc students;
 -- Q9. [DDL – TRUNCATE]
 -- Remove all rows from the students table but keep the structure.
 -- Your answer :
-
+truncate table students;
 
 -- Q10. [DDL – DROP]
 -- Drop the orders table completely.
 -- Your answer :
-
+drop table students;
 
 
 -- ── DML  (Q11–Q18)  ─────────────────────────────────────────────
+create database saless;
+use  saless;
+-- drop table sales;
 
+CREATE TABLE sales (order_id INT, customer_name VARCHAR(50),
+product Varchar(20) , price int , quantity int , city Varchar(20) , salary DECIMAL(10,2), performance varchar(30) ,order_date DATE
+);
 -- Q11. [DML – INSERT]
 -- Insert 3 rows into the sales table with all columns filled.
 -- Your answer :
-
+INSERT INTO sales
+(order_id, customer_name, product, price, quantity, city, salary, performance, order_date)
+VALUES
+(1,'Anuraj','Laptop',55000,2,'Bhopal',60000,'Good','2026-07-01'),
+(2,'Rahul','Mobile',25000,1,'Mumbai',70000,'Good','2026-07-02'),
+(3,'Aman','Monitor',15000,3,'Delhi',85000,'Average','2026-07-03');
+select * from sales;
 
 -- Q12. [DML – INSERT]
 -- Insert a row into the sales table where city is NULL.
 -- Your answer :
+INSERT INTO sales
+(order_id,customer_name,product,price,quantity,city,salary,performance,order_date)
+VALUES
+(4,'Priya','Keyboard',3000,5,NULL,35000,'Good','2026-07-04');
 
-
--- Q13. [DML – INSERT]
+--  Q13. [DML – INSERT]
 -- Insert a row into the sales table where both customer_name and price are NULL.
 -- Your answer :
-
+INSERT INTO sales
+(order_id,customer_name,product,price,quantity,city,salary,performance,order_date)
+VALUES
+(5,NULL,'Mouse',NULL,2,'Pune',40000,'Average','2026-07-05');
 
 -- Q14. [DML – UPDATE]
 -- Update the city to 'Delhi' where order_id = 5.
 -- Your answer :
-
-
+set sql_safe_updates = 0;
+UPDATE sales
+SET city='Delhi'
+WHERE order_id=5;
 -- Q15. [DML – UPDATE]
 -- Update the price to 99999 where customer_name IS NULL.
 -- Your answer :
