@@ -5,7 +5,7 @@
 -- Your answer : 
 create database cybrom_practice;
 use cybrom_practice;
-drop database cybrom_practice;
+-- drop database cybrom_practice;
 
 
 -- Q2. [DDL – CREATE]
@@ -146,22 +146,29 @@ WHERE price IS NULL
 -- Q19. [DQL – SELECT]
 -- Show all rows from the sales table.
 -- Your answer :
+SELECT * 
+FROM sales;
 
 
 -- Q20. [DQL – SELECT]
 -- Show only customer_name, product, and price from sales.
 -- Your answer :
-
+SELECT customer_name, product, price 
+FROM sales;
 
 -- Q21. [DQL – SELECT]
 -- Show all rows from sales where price > 50000.
 -- Your answer :
-
+SELECT * 
+FROM sales 
+WHERE price > 50000;
 
 -- Q22. [DQL – SELECT]
 -- Show all rows from sales where city = 'Mumbai'.
 -- Your answer :
-
+SELECT * 
+FROM sales 
+WHERE city = 'Mumbai';
 
 -- Q23. [DQL – SELECT]
 -- Show top 5 rows from sales ordered by price DESC.
