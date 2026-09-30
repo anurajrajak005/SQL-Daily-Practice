@@ -5,7 +5,7 @@
 -- Your answer : 
 create database cybrom_practice;
 use cybrom_practice;
--- drop database cybrom_practice;
+drop database cybrom_practice;
 
 
 -- Q2. [DDL – CREATE]
@@ -109,24 +109,35 @@ set sql_safe_updates = 0;
 UPDATE sales
 SET city='Delhi'
 WHERE order_id=5;
+
 -- Q15. [DML – UPDATE]
 -- Update the price to 99999 where customer_name IS NULL.
 -- Your answer :
-
-
+UPDATE sales
+SET price=99999
+WHERE customer_name IS NULL;
 -- Q16. [DML – UPDATE]
 -- Update performance to 'Excellent' where salary > 80000 using CASE WHEN.
 -- Your answer :
+UPDATE employees
+SET performance = CASE 
+    WHEN salary > 80000 THEN 'Excellent'
+    ELSE performance
+END;
 
 
 -- Q17. [DML – DELETE]
 -- Delete all rows from sales where city IS NULL.
 -- Your answer :
-
+DELETE FROM sales
+WHERE city IS NULL;
 
 -- Q18. [DML – DELETE]
 -- Delete rows from sales where price IS NULL AND product IS NULL.
 -- Your answer :
+DELETE FROM sales
+WHERE price IS NULL 
+  AND product IS NULL;
 
 
 
